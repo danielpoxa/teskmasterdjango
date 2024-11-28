@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todas as Tarefas</title>
+    <link rel="stylesheet" href="{% static 'taskadd/css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Todas as Tarefas</h1>
+        </header>
+        <div id="task-list-container">
+            <!-- Lista de tarefas -->
+            <ul id="task-list">
+                <li class="task-item">
+                    <form method="POST" action="/edit-task/1">
+                        {% csrf_token %}
+                        <input type="checkbox" name="completed" value="true">
+                        <strong>1. Exemplo de Tarefa</strong><br>
+                        Data de Criação: 27/11/2024 - 14:30<br>
+                        Prazo: 30/11/2024<br>
+                        Prioridade: Alta
+                      
+                        <button type="submit" class="edit-task">Editar</button>
+                    </form>
+                    <form method="POST" action="/delete-task/1">
+                        {% csrf_token %}
+                        <button type="submit" class="delete-task">Excluir</button>
+                    </form>
+                </li>
+                <li class="task-item">
+                    <form method="POST" action="/edit-task/2">
+                        {% csrf_token %}
+                        <input type="checkbox" name="completed" value="true">
+                        <strong>2. Outra Tarefa</strong><br>
+                        Data de Criação: 26/11/2024 - 10:00<br>
+                        Prazo: 30/11/2024<br>
+                        Prioridade: Média
+                      
+                        <button type="submit" class="edit-task">Editar</button>
+                    </form>
+                    <form method="POST" action="/delete-task/2">
+                        {% csrf_token %}
+                        <button type="submit" class="delete-task">Excluir</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+       
+        <a href="{% url 'list' %}">Retornar</a>
+        <!-- Botão para voltar -->
+        <form method="GET" action="/back">
+            <button id="back-button" type="submit">Voltar</button>
+        </form>
+        <!-- Botão para adicionar tarefas -->
+        <form method="GET" action="/add-task">
+            <button id="add-task-button" type="submit">Adicionar Tarefa</button>
+        </form>
+    </div>
+</body>
+</html>

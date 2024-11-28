@@ -1,0 +1,170 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo geral para o corpo */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url("https://i.pinimg.com/originals/74/79/77/747977dfedb099d3e9207b1a5bbd8563.jpg") no-repeat center center/cover;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Contêiner principal */
+.container {
+    width: 100%;
+    max-width: 600px;
+    background: rgba(18, 18, 18, 0.95);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+    position: relative;
+    z-index: 1;
+}
+
+/* Cabeçalho */
+header h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #f1f4f4;
+    font-weight: bold;
+}
+
+/* Estilos para a lista de tarefas */
+#task-list-container {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Estilo para cada item de tarefa */
+.task-item {
+    background: #1e1e1e;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Texto da tarefa */
+.task-item strong {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+/* Checkbox */
+.task-item input[type="checkbox"] {
+    margin-right: 15px;
+    transform: scale(1.3);
+    cursor: pointer;
+    accent-color: #f8f6f7;
+}
+
+/* Estilo do ícone de check quando a tarefa for concluída */
+.task-item input[type="checkbox"]:checked + strong::before {
+    content: "✅"; /* Ícone de check */
+    font-size: 1.5rem;
+    margin-right: 10px;
+    color: #fff;
+}
+
+/* Texto "Concluída" */
+.task-item input[type="checkbox"]:checked + strong::after {
+    content: " - Concluída";
+    font-size: 1rem;
+    font-weight: 500;
+    color: #4CAF50;
+    margin-left: 10px;
+}
+
+/* Estilo da data e hora */
+.task-item .task-time {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-bottom: 5px;
+}
+
+/* Estilo do prazo */
+.task-item .task-deadline {
+    font-size: 1rem;
+    color: #ffcc00;
+}
+
+/* Lembrete de tarefa atrasada */
+.reminder {
+    display: none;
+    font-size: 1rem;
+    color: #e74c3c;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+/* Mostrar lembrete "Tarefa Atrasada" se a tarefa não for concluída a tempo */
+.task-item .reminder {
+    display: block;
+}
+
+/* Estilo quando a tarefa for concluída */
+.task-item input[type="checkbox"]:checked + strong {
+    text-decoration: line-through; /* Riscar o texto */
+    color: #ccc; /* Cor do texto riscado */
+}
+
+/* Botões de ação */
+.edit-task,
+.delete-task {
+    background: linear-gradient(to right, #ff007a, #ff9900);
+    color: white;
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-left: 5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeitos de hover para os botões */
+.edit-task:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 0, 122, 0.7);
+}
+
+.delete-task:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 153, 0, 0.7);
+    background: linear-gradient(to right, #ff4500, #ff9900);
+}
+
+/* Botão principal (Adicionar ou Voltar) */
+button {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(to right, #ff007a, #ff9900);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 1.5rem;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 0, 122, 0.7);
+}
