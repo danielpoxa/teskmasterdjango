@@ -1,0 +1,40 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+    <link rel="stylesheet" href="{% static 'tasklist/css/style.css' %}">
+    <script>
+        function f1(){
+            alert("Tarefa salva com sucesso!");
+        } 
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Criar Tarefa</h1>
+        </header>
+        <div id="task-input">
+            <input type="text" id="task-text" placeholder="Digite sua tarefa">
+            <input type="date" id="task-date">
+            <select id="task-priority">
+                <option value="Baixa">Baixa</option>
+                <option value="Média">Média</option>
+                <option value="Alta">Alta</option>
+            </select>
+                <button id="add-task" onclick="f1()">Salvar Tarefa</button>
+                <a href="{% url 'list' %}">
+                    <button type="button">Voltar -------</button>  
+                </a>  
+                
+        </div>
+        <ul id="task-list" style="display: none;"></ul>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

@@ -3,29 +3,31 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Tarefas</title>
-    <link rel="stylesheet" href="{% static 'tasklist/css/style.css' %}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'tasklist/css/style.css' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <title>Lista de tarefas</title>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Minha Lista de Tarefas</h1>
-        </header>
-        <div id="task-input">
-            <input type="text" id="task-text" placeholder="Digite sua tarefa">
-            <input type="date" id="task-date">
-            <select id="task-priority">
-                <option value="Baixa">Baixa</option>
-                <option value="Média">Média</option>
-                <option value="Alta">Alta</option>
-            </select>
-            <button id="add-task">Adicionar Tarefa</button>
-        </div>
-        <button id="show-tasks">Tarefas Adicionadas</button>
-        <ul id="task-list" style="display: none;"></ul>
+  <div class="list-container">
+     <div class="list-box">
+     <div id="task-input">
+
+        <h1>Minha lista de tarefas<span class="dot">.</span></h1>
+        <a href="{% url 'add' %}">
+               <button type="button">Nova tarefa</button>  
+        </a>  
+       
+     </div>   
+         
+               
     </div>
+    </div>
+    </div>
+
+    <script src="scripts.js"></script>
+  </div>
 
     <script src="scripts.js"></script>
 </body>
