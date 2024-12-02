@@ -6,12 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Tarefas</title>
-    <link rel="stylesheet" href="{% static 'tasklist/css/style.css' %}">
-    <script>
-        function f1(){
-            alert("Tarefa salva com sucesso!");
-        } 
-    </script>
+    <link rel="stylesheet" href="{% static 'taskAdd/css/style.css' %}">
 </head>
 <body>
     <div class="container">
@@ -19,22 +14,19 @@
             <h1>Criar Tarefa</h1>
         </header>
         <div id="task-input">
-            <input type="text" id="task-text" placeholder="Digite sua tarefa">
-            <input type="date" id="task-date">
-            <select id="task-priority">
-                <option value="Baixa">Baixa</option>
-                <option value="Média">Média</option>
-                <option value="Alta">Alta</option>
-            </select>
-                <button id="add-task" onclick="f1()">Salvar Tarefa</button>
-                <a href="{% url 'list' %}">
-                    <button type="button">Voltar -------</button>  
-                </a>  
-                
+            <form method="POST" action="{% url 'add' %}">
+                {% csrf_token %}
+                <input type="text" name="title" id="task-text" placeholder="Digite sua tarefa" required>
+                <input type="date" name="due_date" id="task-date" required>
+                <select name="priority" id="task-priority">
+                    <option value="Baixa">Baixa</option>
+                    <option value="Média">Média</option>
+                    <option value="Alta">Alta</option>
+                </select>
+                <button type="submit" id="add-task">Salvar Tarefa</button>  
+            </form>     
         </div>
-        <ul id="task-list" style="display: none;"></ul>
     </div>
 
-    <script src="scripts.js"></script>
 </body>
 </html>

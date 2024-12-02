@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,26 +10,41 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <title>Lista de tarefas</title>
 </head>
+
 <body>
-  <div class="list-container">
-     <div class="list-box">
-     <div id="task-input">
+  <h1>Minha lista de tarefas<span class="dot">.</span></h1>
+  <div>
+    <div class="list-box">
 
-        <h1>Minha lista de tarefas<span class="dot">.</span></h1>
-        <a href="{% url 'add' %}">
-               <button type="button">Nova tarefa</button>  
-        </a>  
+      <div id="task-input">
+
        
-     </div>   
-         
-               
-    </div>
-    </div>
-    </div>
+        <ul>
+          {% for task in tasks %}
+          <li>
+            <div class="container">
+              <strong>{{ task.title }}</strong> - {{ task.due_date }} -
+              {{ task.priority }}
+            </div>
+          </li>
+          {% empty %}
+          <p>Você ainda não possuiu tarefas cadastradas.</p>
+          {% endfor %}
 
-    <script src="scripts.js"></script>
+        </ul>
+
+        <!--<a href="{% url 'add' %}"><button type="button">Voltar</button></a>-->
+          
+
+
+      </div>
+
+
+    </div>
+  </div>
   </div>
 
-    <script src="scripts.js"></script>
+  </div>
 </body>
+
 </html>
