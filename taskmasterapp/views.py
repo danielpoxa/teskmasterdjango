@@ -1,8 +1,9 @@
 from django.contrib.auth import authenticate, login 
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect,get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.models import User 
 from .models import Task
+from .forms import TaskForm
 
 def login_view(request):
     if request.method == 'POST':
@@ -60,3 +61,19 @@ def cadastro_view(request):
             messages.error(request, f"Erro ao registrar usuário: {e}")
             return redirect("reg")           
     return render(request, 'cadastro/index.html')    
+
+def delete_task(request, task_id):
+    task = get_object_or_404(Task, id=task_id)
+    task.delete()
+    return redirect('list') 
+
+def edit_task(request, task_id):
+    task = get_object_or_404(Task, id=task_id)
+    if request.method == 'POST':
+        form = TaskForm(request.POST, instance=task)
+        if form.is_valid():
+          form.save()
+        return redirect('list')
+    else:
+        form = TaskForm(instance=task)
+    return render(request, 'taskedit/index.html', {'form': form, 'task': task})    

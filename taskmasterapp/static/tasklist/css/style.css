@@ -22,7 +22,6 @@ body {
 
 /* Contêiner principal */
 .container {
-    
     width: 100%;
     max-width: 300px;
     background: rgba(18, 18, 18, 0.9);
@@ -31,6 +30,24 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
     position: relative;
     z-index: 1;
+}
+
+/* Estilos para a prioridade alta */
+.high-priority {
+    background-color: #dc3545; /* Vermelho */
+    border: 2px solid #c82333;
+}
+
+/* Estilos para a prioridade média */
+.medium-priority {
+    background-color: #ffc107; /* Amarelo */
+    border: 2px solid #e0a800;
+}
+
+/* Estilos para a prioridade baixa */
+.low-priority {
+    background-color: #28a745; /* Verde */
+    border: 2px solid #218838;
 }
 
 /* Cabeçalho */
